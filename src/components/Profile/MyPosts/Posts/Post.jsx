@@ -8,7 +8,7 @@ const Post = (props) => {
             <img src="http://cdn.collider.com/wp-content/uploads/2019/03/avatar-movie-sam-worthington.jpg" alt="" />
             {props.message}
             <div>
-                <span>like <span className="like_counts">{props.likeCounts}</span></span>
+                <span>like <span className="like_counts">{props.likesCount}</span></span>
             </div>
         </div>
     );
