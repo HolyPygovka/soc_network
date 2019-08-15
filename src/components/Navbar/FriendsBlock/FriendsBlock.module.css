@@ -1,0 +1,11 @@
+.friends {
+    display: flex;
+}
+.one_friend {
+    flex-basis: 0;
+    flex: 1 1 0;
+}
+.one_friend img{
+    width: 40px;
+    border-radius: 50%;
+}

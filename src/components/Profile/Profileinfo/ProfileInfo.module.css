@@ -1,3 +1,6 @@
 .description_block {
     padding: 10px;
 }
+.profile_info_img_block img {
+    width: 100%;
+}

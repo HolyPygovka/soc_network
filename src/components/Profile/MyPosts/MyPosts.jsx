@@ -2,13 +2,17 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Posts/Post';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let posts = [
-        {id: 1, message: 'It\'s my first post', likesCount: '11'},
-        {id: 2, message: 'My too', likesCount: '12'}
-    ]
-    let postsElements = posts.map(el => <Post message={el.message} likesCount={el.likesCount} />);
+    let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} />);
+
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        newPostElement.current.value='';
+    }
 
     return (
         <div className={s.posts_block}>
@@ -17,10 +21,10 @@ const MyPosts = () => {
             </h3>
             <div>
                 <div>
-                    <textarea name="" id="" cols="30" rows="4"></textarea>
+                    <textarea ref={newPostElement} cols="30" rows="4"></textarea>
                 </div>
                 <div className={s.add_post_btn}>
-                    <button>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={s.posts}>
