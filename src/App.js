@@ -15,7 +15,7 @@ function App(props) {
       <Header />
       <Navbar navbarState={props.store.getState().siteBar} />
       <div className="app_wrapper_content">
-        <Route path='/dialogs' render={ () => <Dialogs store={props.store} /> } />
+        <Route path='/dialogs' render={ () => <Dialogs store={props} /> } />
         <Route path='/profile'  render={ () => <Profile state={props.state.profilePage}
           dispatch={props.dispatch} /> }/>
         <Route path='/news' render={ () => <News/> }/>
