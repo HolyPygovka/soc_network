@@ -2,20 +2,20 @@ import * as serviceWorker from './serviceWorker'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import state, { addPost, textareaChanges, subscribe, store } from './redux/state'
+import store from './redux/state'
 import {BrowserRouter} from 'react-router-dom'
 
 export let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App store={store} state={state} addPost={addPost} textareaChanges={textareaChanges}/>
+            <App store={store} state={state} dispatch={store.dispatch.bind(store)}  />
         </BrowserRouter>, document.getElementById('root'));
 }
 
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 
 

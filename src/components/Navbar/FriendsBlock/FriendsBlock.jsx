@@ -6,7 +6,7 @@ const FriendsBlock = (props) => {
     let friends = props.friedsState.map((el) => <OneFriend friend={el} />);
     return(
         <div className={s.friends_block}>
-            <p className="title">Friends</p>
+            <p className="title">Friends</p> 
             <div className={s.friends}>
                 {friends}
             </div>
