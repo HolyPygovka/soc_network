@@ -8,8 +8,8 @@ const Dialogs = (props) => {
 
     let state = props.dialogsPage;
 
-    let messagesElements = state.messagesData.map(el =>  <Message message={el.message}/>);
-    let dialogsElements = state.dialogsData.map(el => <DialogItem name={el.name} id={el.id} />);
+    let messagesElements = state.messagesData.map(el =>  <Message message={el.message} key={el.id} />);
+    let dialogsElements = state.dialogsData.map(el => <DialogItem name={el.name} key={el.id} id={el.id} />);
     let newMessageBody = state.newMessageBody;
 
     let onSendMessageClick = () => {
@@ -17,7 +17,7 @@ const Dialogs = (props) => {
     }
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.updateNewMessageBody(body);
+        props.updateNewMessageBody(body); 
     }
 
     return(

@@ -18,11 +18,6 @@ let rerenderEntireTree = () => {
 
 rerenderEntireTree(store.getState());
 
-store.subscribe( () => {
-    let state = store.getState();
-    rerenderEntireTree(state);
-});
-
 
 
 // If you want your app to work offline and load faster, you can change

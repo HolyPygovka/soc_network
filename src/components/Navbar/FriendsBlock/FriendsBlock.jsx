@@ -3,7 +3,7 @@ import s from './FriendsBlock.module.css';
 import OneFriend from './OneFriend/OneFriend';
 
 const FriendsBlock = (props) => {
-    let friends = props.friedsState.map((el) => <OneFriend friend={el} />);
+    let friends = props.friedsState.map((el) => <OneFriend key={el.id} friend={el} />);
     return(
         <div className={s.friends_block}>
             <p className="title">Friends</p> 
