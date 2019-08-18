@@ -1,3 +1,6 @@
 .user_img {
     max-width: 100px;
 }
+.selected_page {
+    font-weight: 800;
+}
