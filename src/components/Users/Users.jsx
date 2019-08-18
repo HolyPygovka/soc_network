@@ -10,20 +10,18 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-
     return <div>
         <div>
             {pages.map(el => {
                 return <span
+                    key={el}
                     className={props.currentPage === el && s.selected_page}
                     onClick={(e) => {
                         props.onPageChanged(el)
                     }}>{el}</span>
             })}
         </div>
-        {props
-            .users
-            .map(el => <div key={el.id}>
+        {props.users.map(el => <div key={el.id}>
                 <span>
                     <div>
                         <img
