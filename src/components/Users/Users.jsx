@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Users.module.css';
 import userPhoto from '../../assets/images/user.png';
 import {NavLink} from 'react-router-dom';
+import * as axios from 'axios';
 
 let Users = (props) => {
 
@@ -37,10 +38,36 @@ let Users = (props) => {
                     <div>{el.followed
                         ? <button
                             onClick={() => {
-                                props.unfollow(el.id)
+                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`, {
+                                    withCredentials: true,
+                                    headers: {
+                                        "API-KEY": "a1c48c24-1c33-4474-808e-1bce3f00f0bb"
+                                    }
+                                })
+                                    .then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.unfollow(el.id);
+                                        } 
+                                    })
+
+
                             }}>Unfollow</button>
                         : <button onClick={() => {
-                            props.follow(el.id)
+
+                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`, {}, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "a1c48c24-1c33-4474-808e-1bce3f00f0bb"
+                                }
+                            })
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.follow(el.id);
+                                    } 
+                                })
+
+                            
+
                         }}>Follow</button>}
                     </div>
                 </span>
