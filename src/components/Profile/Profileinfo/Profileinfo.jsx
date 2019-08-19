@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from '../../Preloader/Preloader';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -8,12 +9,13 @@ const ProfileInfo = (props) => {
     }
     return (
         <div>
-            <div className={s.profile_info_img_block}>
+            {/* <div className={s.profile_info_img_block}>
                 <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
                     alt="" />
-            </div>
+            </div> */}
             <div className={s.description_block}>
                 <img src={props.profile.photos.large} alt=""/>
+                <ProfileStatus status={"all is well"} />
                 <div><p>{props.profile.fullName}</p></div>
                 <div>{props.profile.aboutMe}</div>
                 <div><a href={`https://${props.profile.contacts.facebook}`}>facebook</a></div>
