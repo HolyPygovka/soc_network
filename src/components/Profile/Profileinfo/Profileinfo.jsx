@@ -6,7 +6,6 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
-
     return (
         <div>
             <div className={s.profile_info_img_block}>
