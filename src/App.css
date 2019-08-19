@@ -1,5 +1,6 @@
 .app_wrapper {
     width: 1200px;
+    max-width: 100%;
     margin: 9px auto;
     display: grid;
 
